@@ -1,0 +1,18 @@
+{
+  "name": "reminder-app",
+  "version": "1.0.0",
+  "description": "App to make a notes board",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "author": "Claudia DM",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "dotenv": "^16.4.3",
+    "express": "^4.18.2",
+    "morgan": "^1.10.0"
+  }
+}
