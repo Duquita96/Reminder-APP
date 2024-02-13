@@ -22,7 +22,6 @@ app.use(express.json());
 app.use(express.static(__dirname + "../routes/public"));
 app.use(express.urlencoded({ extended: true }));
 
-
 //GET method
 app.get("/", (req, res) => {
   console.log(`${PORT}`);
@@ -32,6 +31,12 @@ app.get("/notes", (req, res) => {
   res.sendFile(__dirname + "/routes/public/index.html");
 });
 
+//POST method
+app.post("/notes", (req, res) => {
+  console.log(req.body);
+  res.send(`Note added`); //or res.json({msg: "Note added"}) (these methods are used for Frontend)
+
+});
 
 // listener
 app.listen(PORT, () => {

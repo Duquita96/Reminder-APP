@@ -1,4 +1,4 @@
-// <!-- //import dependencies
+
 // import express from "express";
 // import { log } from "console";
 // import dotenv from "dotenv";
@@ -64,4 +64,3 @@
 // app.listen(PORT, () => {
 //   log(`The app is ready on:\thttp://localhost:${PORT}`);
 // });
-//  -->
