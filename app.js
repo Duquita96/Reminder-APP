@@ -13,19 +13,19 @@ dotenv.config();
 
 // define the app and the PORT
 const app = express();
-const PORT = process.env.PORT || 7001; // if (process.env.PORT) undefined, then use 7000
+const PORT = process.env.PORT || 7000; // if (process.env.PORT) undefined, then use 7000
 
 // Middleware
 //app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 //app.use("/notes", NotesPage.htmlContent);
-//app.use(express.static(__dirname + "/routes/public"));
+app.use(express.static(__dirname + "../routes/public"));
 app.use(express.urlencoded({ extended: true }));
 
 
 //GET method
 app.get("/", (req, res) => {
-  console.log(`${PORT}: /Home`);
+  console.log(`${PORT}`);
   res.send("<h1>Let's add some notes!</h1>");
 });
 app.get("/notes", (req, res) => {
