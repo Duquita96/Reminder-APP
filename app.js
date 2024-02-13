@@ -5,6 +5,7 @@ import dotenv from "dotenv";
 import logger from "morgan";
 import NotesPage from "./routes/notes.js";
 
+
 // call config from dotenv, to let app able to read variables
 dotenv.config();
 
