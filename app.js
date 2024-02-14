@@ -26,8 +26,8 @@ app.use(express.urlencoded({ extended: true }));
 //GET method
 app.get("/", (req, res) => {
   console.log(`${PORT}`);
-  res.send("<h1>Let's add some notes!</h1>");
-});
+  res.send("<h1>Let's add some notes!</h1><button onclick=window.location.href='/notes'>Ir a las notas</button>");
+  });
 app.get("/notes", (req, res) => {
   res.sendFile(__dirname + "/routes/public/index.html");
 });
