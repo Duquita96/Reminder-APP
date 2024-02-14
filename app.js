@@ -5,6 +5,7 @@ import dotenv from "dotenv";
 import logger from "morgan";
 import NotesPage from "./routes/notes.js";
 import path from "path";
+import fs from "fs";
 
 const __dirname = path.resolve();
 
@@ -33,9 +34,18 @@ app.get("/notes", (req, res) => {
 
 //POST method
 app.post("/notes", (req, res) => {
-  console.log(req.body);
-  res.send(`Note added`); //or res.json({msg: "Note added"}) (these methods are used for Frontend)
+  const userinput = req.body.userInput;
+  if (typeof userinput !== "string") {
+    return res.status(400).send("The value need to be a string");
+  }
 
+  try {
+    fs.writeFileSync("notes.txt", userinput);
+    res.send(`The value "${userinput}" is saved in notes.txt`);
+  } catch (error) {
+    console.error("Error to write in the file", error);
+    res.status(500).send("Error to save the value on the file.");
+  }
 });
 
 // listener
