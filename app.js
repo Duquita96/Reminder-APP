@@ -22,11 +22,14 @@ app.use(express.json());
 //app.use("/notes", NotesPage.htmlContent);
 app.use(express.static(__dirname + "../routes/public"));
 app.use(express.urlencoded({ extended: true }));
+// app.use((req, res, next) => {
+//   res.status(404).send("Upss! page not found, sorry! :(");
+// });
 
 //GET method
 app.get("/", (req, res) => {
   console.log(`${PORT}`);
-  res.send("<h1>Let's add some notes!</h1><button onclick=window.location.href='/notes'>Ir a las notas</button>");
+  res.send("<h1>Let's add some notes!</h1><button onclick=window.location.href='/notes'>Go to notes</button>");
   });
 app.get("/notes", (req, res) => {
   res.sendFile(__dirname + "/routes/public/index.html");
